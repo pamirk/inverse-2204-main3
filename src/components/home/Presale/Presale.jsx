@@ -2,18 +2,12 @@ import { useState, Fragment } from "react";
 import { Modal } from "components/design";
 const PresaleButton = (props) => {
     const [open, setOpen] = useState(false);
-     const OnButtonCLicked = () => {
-        setOpen(true)
-    }
+
     return (
         <Fragment>
             <button
-
-                style={{pointerEvents: "default"}}
-                className="bg-gray-500/50 w-48 h-12 text-white uppercase border border-yellow-400 rounded-lg"
-                onClick={function(e) {
-                    setOpen(true)
-                } }
+                className="cursor-pointer bg-gray-500/50 w-48 h-12 text-white uppercase border-2 border-yellow-400 rounded-lg"
+                onClick={() => setOpen(true)}
             >
                 Presale
             </button>
@@ -32,7 +26,7 @@ const PresaleButton = (props) => {
                 </div>
                 <div className="w-max-w mt-3 p-3">
                     <form action="" className="w-full">
-                        <div className="flex">
+                        <div className="flex flex-col md:flex-row">
                             <input
                                 id="idk-1"
                                 type="text"
@@ -41,11 +35,13 @@ const PresaleButton = (props) => {
                             />
                             <label
                                 htmlFor="idk-1"
-                                className="flex flex-1 items-center justify-around"
+                                className="flex mt-2 md:mt-0 md:flex-1 items-center md:justify-around"
                             >
-                                <p className="p-2 text-yellow-400 text-xl">BNB</p>
+                                <p className="p-1 md:p-2 text-yellow-400 text-lg md:text-xl">
+                                    BNB
+                                </p>
                                 <p className="text-white/50 mx-1">x</p>
-                                <p className=" rounded-lg p-2 text-yellow-400 bg-white/10 text-xl">
+                                <p className="rounded-lg p-1 md:p-2 text-yellow-400 bg-white/10  text-lg md:text-xl">
                                     0.056
                                 </p>
                             </label>
@@ -58,7 +54,9 @@ const PresaleButton = (props) => {
                                 placeholder="000x"
                             />
                             <label htmlFor="idk-2" className="flex">
-                                <p className="p-2 text-yellow-400 text-xl">Tokens</p>
+                                <p className="p-1 md:p-2 text-yellow-400 text-lg md:text-xl">
+                                    Tokens
+                                </p>
                             </label>
                         </div>
                     </form>
