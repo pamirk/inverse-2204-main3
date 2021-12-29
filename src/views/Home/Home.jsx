@@ -4,7 +4,9 @@ import { Container } from "components/design";
 import { Presale } from "components/home";
 import clsx from "clsx";
 import { getTuple } from "utils";
-
+// import PiChart from "../PiChart";
+import PureComponent from "../../components/PureComponent";
+import { PieChart, Pie, Tooltip } from "recharts";
 const social = [
   {
     name: "Facebook",
@@ -49,6 +51,25 @@ function Home() {
     minutes: [],
     seconds: [],
   });
+  const data1 = [
+    { name: "Group A", value: 400 },
+    { name: "Group B", value: 300 },
+    { name: "Group C", value: 300 },
+    { name: "Group D", value: 200 },
+  ];
+  const data2 = [
+    { name: "A1", value: 100 },
+    { name: "A2", value: 300 },
+    { name: "B1", value: 100 },
+    { name: "B2", value: 80 },
+    { name: "B3", value: 40 },
+    { name: "B4", value: 30 },
+    { name: "B5", value: 50 },
+    { name: "C1", value: 100 },
+    { name: "C2", value: 200 },
+    { name: "D1", value: 150 },
+    { name: "D2", value: 50 },
+  ];
   useEffect(() => {
     const target = new Date("Feb 5, 2022 15:37:25").getTime();
     const x = setInterval(() => {
@@ -106,7 +127,7 @@ function Home() {
             <div className="relative pt-6">
               <div className="flex flex-col md:flex-row justify-start md:justify-start items-center">
                 <div className="grid grid-cols-1 gap-2 ml-0 mb-4 z-10">
-                  <button  className="bg-gray-500/50 w-48 h-12 text-white uppercase border border-yellow-400 rounded-lg">
+                  <button className="bg-gray-500/50 w-48 h-12 text-white uppercase border border-yellow-400 rounded-lg">
                     WHITE PAPER
                   </button>
                   <Presale />
@@ -170,12 +191,12 @@ function Home() {
             <div className="w-full py-8">
               <div className="w-full rounded-lg p-1 mt-8 md:p-4 bg-black flex justify-center items-center">
                 {Object.keys(Array.from(Array(8))).map((val, i) => (
-                    <img
-                        key={i}
-                        className="h-8 md:h-24 w-8 md:w-24 object-contain mx-2"
-                        src={`images/ad-${i + 1}.png`}
-                        alt={`ad-${i + 1}`}
-                    />
+                  <img
+                    key={i}
+                    className="h-8 md:h-24 w-8 md:w-24 object-contain mx-2"
+                    src={`images/ad-${i + 1}.png`}
+                    alt={`ad-${i + 1}`}
+                  />
                 ))}
               </div>
             </div>
@@ -195,7 +216,7 @@ function Home() {
                 can Do whoever you want to do, have whatever you want to have,
                 become whoever you want to be.
               </p>
-              <button  className="font-quantico p-4 uppercase bg-yellow-400 rounded-lg shadow-md shadow-yellow-700">
+              <button className="font-quantico p-4 uppercase bg-yellow-400 rounded-lg shadow-md shadow-yellow-700">
                 Game Overview
               </button>
             </div>
@@ -218,7 +239,9 @@ function Home() {
                     Explore
                   </h4>
                   <p className="mt-2 text-white text-base">
-                    Experience the Apocalyptic landscape unlike any other. Explore the wretched wastelands to make new discoveries and gain new assets.
+                    Experience the Apocalyptic landscape unlike any other.
+                    Explore the wretched wastelands to make new discoveries and
+                    gain new assets.
                   </p>
                 </div>
                 <div className="flex flex-col">
@@ -231,7 +254,9 @@ function Home() {
                     Brawl
                   </h4>
                   <p className="mt-2 text-white text-base">
-                    Fight your way to the top. Each season split resets the leaderboards which will give each player a chance to redeem their titles.
+                    Fight your way to the top. Each season split resets the
+                    leaderboards which will give each player a chance to redeem
+                    their titles.
                   </p>
                 </div>
                 <div className="flex flex-col">
@@ -244,7 +269,8 @@ function Home() {
                     Team up
                   </h4>
                   <p className="mt-2 text-white text-base">
-                    Join alliances to team up and explore the wasteland to conquer different worlds with different landscapes.
+                    Join alliances to team up and explore the wasteland to
+                    conquer different worlds with different landscapes.
                   </p>
                 </div>
               </div>
@@ -378,6 +404,74 @@ function Home() {
             </div>
           </Container>
         </section>
+        <div className="token flex aic jc">
+          <div className="block flex">
+            <div className="left flex aic jc">
+              <div className="chart">
+                <PieChart width={450} height={450}>
+                  <Pie
+                    data={data1}
+                    dataKey="value"
+                    cx="50%"
+                    cy="50%"
+                    outerRadius={60}
+                    fill="#8884d8"
+                  />
+                  <Pie
+                    data={data2}
+                    dataKey="value"
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={70}
+                    outerRadius={90}
+                    fill="#facc15"
+                    label
+                  />
+                  <Tooltip />
+                </PieChart>
+              </div>
+            </div>
+            <div className="right flex jc flex-col">
+              <div className="heading">TOKEN ALLOCATION</div>
+              <div className="contant flex flex-col">
+                <div className="item flex">
+                  <div className="lbl">Total Supply:</div>
+                  <div className="lbl-data">1,000,000,000 MDL</div>
+                </div>
+                <div className="item flex">
+                  <div className="lbl">Seed Sale:</div>
+                  <div className="lbl-data">5.1% 51,000,000 MDL</div>
+                </div>
+                <div className="item flex">
+                  <div className="lbl">PCS liquidity:</div>
+                  <div className="lbl-data">1.4% 14,000,000 MDL</div>
+                </div>
+                <div className="item flex">
+                  <div className="lbl">TMarketing:</div>
+                  <div className="lbl-data">5% 50,000,000</div>
+                </div>
+                <div className="item flex">
+                  <div className="lbl-data">
+                    {" "}
+                    20% Released at TGE, then 20% at month 1, month 2, month 3
+                    and 4
+                  </div>
+                </div>
+                <div className="item flex">
+                  <div className="lbl">Team: 5%</div>
+                  <div className="lbl-data">
+                    50,000,000 MDL Linearly over 36 months
+                  </div>
+                </div>
+                <div className="item flex">
+                  <div className="lbl">Burn/Blackhole</div>
+                  <div className="lbl-data">83.5% 835,000,000 MDL</div>
+                </div>
+                <button className="cleanbtn btn">OPEN-SOURCE</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <section className={clsx("w-full relative bg-img bg-img-4")}>
           <Container maxWidth="xl">
             {/* <div className="w-full py-12">
@@ -414,69 +508,57 @@ function Home() {
                   ))}*/}
                   <div className="w-auto md:w-64 mx-2 flex flex-col">
                     <img
-                        className="rounded-t-lg h-48 w-auto md:w-64 object-cover"
-                        src={`/images/susaan.jpg`}
-                        alt="Team"
+                      className="rounded-t-lg h-48 w-auto md:w-64 object-cover"
+                      src={`/images/susaan.jpg`}
+                      alt="Team"
                     />
                     <div className="rounded-b-lg px-2 py-4 bg-orange-900">
-                      <p className="text-sm text-white truncate">
-                        susan
-                      </p>
+                      <p className="text-sm text-white truncate">susan</p>
                     </div>
                   </div>
-                  <div  className="w-auto md:w-64 mx-2 flex flex-col">
+                  <div className="w-auto md:w-64 mx-2 flex flex-col">
                     <img
-                        className="rounded-t-lg h-48 w-auto md:w-64 object-cover"
-                        src={`/images/Kenneth.jpg`}
-                        alt="Team"
+                      className="rounded-t-lg h-48 w-auto md:w-64 object-cover"
+                      src={`/images/Kenneth.jpg`}
+                      alt="Team"
                     />
                     <div className="rounded-b-lg px-2 py-4 bg-orange-900">
-                      <p className="text-sm text-white truncate">
-                        Kenneth
-                      </p>
+                      <p className="text-sm text-white truncate">Kenneth</p>
                     </div>
                   </div>
 
-                  <div  className="w-auto md:w-64 mx-2 flex flex-col">
+                  <div className="w-auto md:w-64 mx-2 flex flex-col">
                     <img
-                        className="rounded-t-lg h-48 w-auto md:w-64 object-cover"
-                        src={`/images/Shirley.jpg`}
-                        alt="Team"
+                      className="rounded-t-lg h-48 w-auto md:w-64 object-cover"
+                      src={`/images/Shirley.jpg`}
+                      alt="Team"
                     />
                     <div className="rounded-b-lg px-2 py-4 bg-orange-900">
-                      <p className="text-sm text-white truncate">
-                        Shirley
-                      </p>
+                      <p className="text-sm text-white truncate">Shirley</p>
                     </div>
                   </div>
 
-                  <div  className="w-auto md:w-64 mx-2 flex flex-col">
+                  <div className="w-auto md:w-64 mx-2 flex flex-col">
                     <img
-                        className="rounded-t-lg h-48 w-auto md:w-64 object-cover"
-                        src={`/images/Margaret.jpg`}
-                        alt="Team"
+                      className="rounded-t-lg h-48 w-auto md:w-64 object-cover"
+                      src={`/images/Margaret.jpg`}
+                      alt="Team"
                     />
                     <div className="rounded-b-lg px-2 py-4 bg-orange-900">
-                      <p className="text-sm text-white truncate">
-                        Margaret
-                      </p>
+                      <p className="text-sm text-white truncate">Margaret</p>
                     </div>
                   </div>
 
-                  <div  className="w-auto md:w-64 mx-2 flex flex-col">
+                  <div className="w-auto md:w-64 mx-2 flex flex-col">
                     <img
-                        className="rounded-t-lg h-48 w-auto md:w-64 object-cover"
-                        src={`/images/Nicholas.jpg`}
-                        alt="Team"
+                      className="rounded-t-lg h-48 w-auto md:w-64 object-cover"
+                      src={`/images/Nicholas.jpg`}
+                      alt="Team"
                     />
                     <div className="rounded-b-lg px-2 py-4 bg-orange-900">
-                      <p className="text-sm text-white truncate">
-                        Nicholas
-                      </p>
+                      <p className="text-sm text-white truncate">Nicholas</p>
                     </div>
                   </div>
-
-
                 </div>
               </div>
             </div>
