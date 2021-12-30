@@ -112,11 +112,11 @@ const Footer = (props) => {
             <Link to="/" className="flex mb-4">
               <img
                 className="h-8 w-auto sm:h-10"
-                src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                src="/images/coloredmark.png"
                 alt=""
               />
               <span className="font-quantico text-4xl font-bold text-white ml-2">
-                2204
+                Meta Blackout
               </span>
             </Link>
             <p className="my-4 text-sm text-white">

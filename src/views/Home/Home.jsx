@@ -7,6 +7,7 @@ import { getTuple } from "utils";
 // import PiChart from "../PiChart";
 import PureComponent from "../../components/PureComponent";
 import { PieChart, Pie, Tooltip } from "recharts";
+import TokenAllocationGraph from "../../components/home/Gragh/TokenAllocationGraph";
 const social = [
   {
     name: "Facebook",
@@ -194,8 +195,8 @@ function Home() {
                   <img
                     key={i}
                     className="h-8 md:h-24 w-8 md:w-24 object-contain mx-2"
-                    src={`images/ad-${i + 1}.png`}
-                    alt={`ad-${i + 1}`}
+                    src={`images/aa-${i + 1}.png`}
+                    alt={`aa-${i + 1}`}
                   />
                 ))}
               </div>
@@ -404,74 +405,7 @@ function Home() {
             </div>
           </Container>
         </section>
-        <div className="token flex aic jc">
-          <div className="block flex">
-            <div className="left flex aic jc">
-              <div className="chart">
-                <PieChart width={450} height={450}>
-                  <Pie
-                    data={data1}
-                    dataKey="value"
-                    cx="50%"
-                    cy="50%"
-                    outerRadius={60}
-                    fill="#8884d8"
-                  />
-                  <Pie
-                    data={data2}
-                    dataKey="value"
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={70}
-                    outerRadius={90}
-                    fill="#facc15"
-                    label
-                  />
-                  <Tooltip />
-                </PieChart>
-              </div>
-            </div>
-            <div className="right flex jc flex-col">
-              <div className="heading">TOKEN ALLOCATION</div>
-              <div className="contant flex flex-col">
-                <div className="item flex">
-                  <div className="lbl">Total Supply:</div>
-                  <div className="lbl-data">1,000,000,000 MDL</div>
-                </div>
-                <div className="item flex">
-                  <div className="lbl">Seed Sale:</div>
-                  <div className="lbl-data">5.1% 51,000,000 MDL</div>
-                </div>
-                <div className="item flex">
-                  <div className="lbl">PCS liquidity:</div>
-                  <div className="lbl-data">1.4% 14,000,000 MDL</div>
-                </div>
-                <div className="item flex">
-                  <div className="lbl">TMarketing:</div>
-                  <div className="lbl-data">5% 50,000,000</div>
-                </div>
-                <div className="item flex">
-                  <div className="lbl-data">
-                    {" "}
-                    20% Released at TGE, then 20% at month 1, month 2, month 3
-                    and 4
-                  </div>
-                </div>
-                <div className="item flex">
-                  <div className="lbl">Team: 5%</div>
-                  <div className="lbl-data">
-                    50,000,000 MDL Linearly over 36 months
-                  </div>
-                </div>
-                <div className="item flex">
-                  <div className="lbl">Burn/Blackhole</div>
-                  <div className="lbl-data">83.5% 835,000,000 MDL</div>
-                </div>
-                <button className="cleanbtn btn">OPEN-SOURCE</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <TokenAllocationGraph />
         <section className={clsx("w-full relative bg-img bg-img-4")}>
           <Container maxWidth="xl">
             {/* <div className="w-full py-12">
